@@ -51,6 +51,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.text = text
         label.textColor = UIColor.blue
+        label.font = UIFont.systemFont(ofSize: 16)
         label.backgroundColor = UIColor.red
         label.frame = CGRect(x: 100, y: y, width: 200, height: 20)
         view.addSubview(label)

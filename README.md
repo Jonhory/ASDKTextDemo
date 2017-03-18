@@ -8,7 +8,7 @@ I just use ASDK soon, found `ASTextNode` display abnormal when  input with some 
 
 * Blue backgroundColor is `ASTextNode`, Red backgroundColor is `UILabel`
 
-![](http://ww1.sinaimg.cn/large/c6a1cfeagy1fdqwja6da7j20cr0lhdh2.jpg)
+![](http://ww1.sinaimg.cn/large/c6a1cfeagy1fdr0dtqk5lj207i0arjs3.jpg)
 
 * I found this issue show when string contains whiteSpace, `/` , `;` ,maybe include more symbols.
 
