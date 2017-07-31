@@ -44,6 +44,7 @@ class ViewController: UIViewController {
                                                                   NSForegroundColorAttributeName: UIColor.red])
         textNode.frame = CGRect(x: 100, y: y, width: 200, height: 20)
         textNode.backgroundColor = UIColor.blue
+        textNode.truncationMode = .byTruncatingTail
         view.addSubnode(textNode)
     }
     

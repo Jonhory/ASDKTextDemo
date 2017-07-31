@@ -1,14 +1,14 @@
 A sample project for <https://github.com/facebook/AsyncDisplayKit/issues/2885>。
 
-I just use ASDK soon, found `ASTextNode` display abnormal when  input with some string contains `/`。
+### QUESTION:
 
-## UPDATE: 
+I just use ASDK soon, found `ASTextNode` display abnormal when  input with some string contains `/`。
 
 ### PNG show the issue:
 
 * Blue backgroundColor is `ASTextNode`, Red backgroundColor is `UILabel`
 
-![](http://ww1.sinaimg.cn/large/c6a1cfeagy1fdr0dtqk5lj207i0arjs3.jpg)
+![](https://ws1.sinaimg.cn/large/c6a1cfeagy1fi2w6rmc21j207i0arjs3.jpg)
 
 * I found this issue show when string contains whiteSpace, `/` , `;` ,maybe include more symbols.
 
@@ -41,4 +41,25 @@ func loadUILabel(y: CGFloat, with text: String) {
 }
 ```
 
-### If my code have any question, maybe somebody can help me.Thanks.
+### FIXED:
+
+In the [https://github.com/TextureGroup/Texture/issues/173](https://github.com/TextureGroup/Texture/issues/173),  [smeis](https://github.com/smeis) said:
+
+```
+The difference in behavior between ASTextNode 
+and UILabel observed in the Demo app is caused by the fact 
+that the default truncation settings are different.
+UILabel has NSLineBreakByTruncatingTail as default 
+and ASTextNode has NSLineBreakByWordWrapping as default.
+If you set truncationMode to NSLineBreakByTruncatingTail 
+it will behave in the same manner as UILabel.
+```
+
+and then , I add my code:
+
+```
+textNode.truncationMode = .byTruncatingTail
+```
+
+
+![](https://ws1.sinaimg.cn/large/c6a1cfeagy1fi2w74f7uwj20pi16ywi3.jpg)
